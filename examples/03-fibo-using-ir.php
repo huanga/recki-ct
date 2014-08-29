@@ -114,7 +114,9 @@ benchmark($func, "ReckiCT");
 function benchmark(callable $func, $label)
 {
     $start = microtime(true);
-    $result = $func(30);
+    for ($i = 0; $i < 100000; $i++) {
+        $result = $func(30);
+    }
     $end = microtime(true);
     printf("%s completed fibo(30)==$result in %01.4F seconds\n", $label, $end - $start);
 }
